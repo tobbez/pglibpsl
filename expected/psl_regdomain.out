@@ -1,0 +1,26 @@
+CREATE EXTENSION pglibpsl;
+SELECT psl_regdomain('example.co.uk');
+ psl_regdomain 
+---------------
+ example.co.uk
+(1 row)
+
+SELECT psl_regdomain('a.example.co.uk');
+ psl_regdomain 
+---------------
+ example.co.uk
+(1 row)
+
+SELECT psl_regdomain('a.example.co.UK');
+ psl_regdomain 
+---------------
+ example.co.uk
+(1 row)
+
+SELECT psl_regdomain('');
+ psl_regdomain 
+---------------
+ 
+(1 row)
+
+DROP EXTENSION pglibpsl;

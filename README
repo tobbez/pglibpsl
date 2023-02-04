@@ -1,0 +1,33 @@
+Query the Public Suffix List from PostgreSQL.
+
+
+Installation:
+
+  make install
+
+  Then, in psql: CREATE EXTENSION pglibpsl;
+
+
+Dependencies:
+
+  libpsl
+  postgresql
+
+
+Usage:
+
+  SELECT psl_regdomain('a.b.c.example.co.uk');
+   psl_regdomain 
+  ---------------
+   example.co.uk
+  (1 row)
+
+
+Why not pgpsl?
+
+  The pgpsl extension uses an unmaintained in-tree copy of the apparently
+  unmaintained regdom-libs, which doesn't seem to be widely used.
+
+  pglibpsl instead uses the local system's libpsl, which is both maintained and
+  battle tested (packaged in most distributions, and depended on by wget and
+  curl).
