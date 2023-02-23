@@ -22,6 +22,7 @@ Datum psl_regdomain(PG_FUNCTION_ARGS) {
     PG_RETURN_VOID();
   }
 
+  /* if not NULL, regdomain is a pointer into name_normalized (so should not be freed) */
   regdomain = (char*)psl_registrable_domain(psl, name_normalized);
 
   if (!regdomain) {
