@@ -30,7 +30,7 @@ Datum psl_regdomain(PG_FUNCTION_ARGS) {
     PG_RETURN_NULL();
   }
 
-  regdomain_text = cstring_to_text(regdomain);
+  regdomain_text = cstring_to_text(pg_any_to_server(regdomain, strlen(regdomain), PG_UTF8));
 
   psl_free_string(name_normalized);
 
